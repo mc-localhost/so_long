@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasniets <thomasniets@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vvasiuko <vvasiuko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 17:10:30 by vvasiuko          #+#    #+#             */
-/*   Updated: 2024/12/07 00:00:53 by thomasniets      ###   ########.fr       */
+/*   Updated: 2024/12/12 12:31:04 by vvasiuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-
-// # define BPP sizeof(int32_t)
 
 typedef struct s_pos
 {
@@ -70,8 +68,9 @@ void			move_left(t_game *game);
 void			move_right(t_game *game);
 
 // UTILS
-void			exit_success(t_game *game);
-void			error(t_game *game);
+// void			exit_success(t_game *game);
+void			exit_success(void *param);
+void			error(void *param);
 int				error_message(char *str);
 void			print_2d(char **arr);
 

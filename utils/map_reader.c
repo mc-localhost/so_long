@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_reader.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvasiuko <vvasiuko@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/11 14:18:21 by vvasiuko          #+#    #+#             */
+/*   Updated: 2024/12/11 14:23:09 by vvasiuko         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
@@ -23,9 +34,9 @@ int	file_size_with_char_check(char *map_path)
 		return (0);
 	while (read(fd, buffer, 1) == 1)
 	{
-		if (!ft_strchr("10CEP\n", buffer[0]))
+		if (!ft_strchr("10CEP\n", *buffer))
 		{
-			printf("Error\nunrecognised char in map: %c\n", buffer[0]);
+			printf("Error\nunrecognised char in map: %c\n", *buffer);
 			return (close (fd), 0);
 		}
 		bytes_read++;

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thomasniets <thomasniets@student.42.fr>    +#+  +:+       +#+         #
+#    By: vvasiuko <vvasiuko@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/17 16:43:15 by vvasiuko          #+#    #+#              #
-#    Updated: 2024/12/06 22:58:18 by thomasniets      ###   ########.fr        #
+#    Updated: 2024/12/11 14:59:22 by vvasiuko         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-CFLAGS = -Wextra -Wall -Werror -Wunreachable-code -Ofast
+CFLAGS = -Wextra -Wall -Werror -Wunreachable-code -Ofast -g
 HEADERS = -I ./include -I $(LIBMLX)/include
 SRCS = main.c images.c move.c move_wasd.c \
 ./utils/map_reader.c ./utils/map_checker.c \
@@ -21,7 +21,7 @@ RM = rm -rf
 
 LIBMLX = ./lib/MLX42
 LIBFT_PATH = ./lib/libft
-LIBS = $(LIBFT_PATH)/libft.a $(LIBMLX)/build/libmlx42.a -ldl -lglfw -L"/opt/homebrew/Cellar/glfw/3.4/lib" -pthread -lm
+LIBS = $(LIBFT_PATH)/libft.a $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
 
 all: gitclone libmlx libft $(NAME)
 
@@ -45,6 +45,7 @@ libft:
 
 $(NAME): $(OBJS)
 	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@echo "Done with $(NAME)"
 
 clean:
 	$(RM) $(OBJS)

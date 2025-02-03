@@ -12,31 +12,31 @@
 
 #include "libft.h"
 
-static int	ft_format(char c, va_list *args)
+static int	ft_format(char c, va_list args)
 {
 	if (c == 'c')
-		return (ft_print_char(va_arg(*args, int)));
+		return (ft_print_char(va_arg(args, int)));
 	if (c == '%')
 		return (ft_print_char('%'));
 	if (c == 's')
-		return (ft_print_str(va_arg(*args, char *)));
+		return (ft_print_str(va_arg(args, char *)));
 	if (c == 'i' || c == 'd')
-		return (ft_print_int(va_arg(*args, int)));
+		return (ft_print_int(va_arg(args, int)));
 	if (c == 'p')
-		return (ft_print_address(va_arg(*args, void *)));
+		return (ft_print_address(va_arg(args, void *)));
 	if (c == 'u')
-		return (ft_putnbr_uint(va_arg(*args, unsigned int),
+		return (ft_putnbr_uint(va_arg(args, unsigned int),
 				10, "0123456789"));
 	if (c == 'x')
-		return (ft_putnbr_uint(va_arg(*args, unsigned int),
+		return (ft_putnbr_uint(va_arg(args, unsigned int),
 				16, "0123456789abcdef"));
 	if (c == 'X')
-		return (ft_putnbr_uint(va_arg(*args, unsigned int),
+		return (ft_putnbr_uint(va_arg(args, unsigned int),
 				16, "0123456789ABCDEF"));
 	return (-1);
 }
 
-static int	ft_format_check(char c, va_list *args)
+static int	ft_format_check(char c, va_list args)
 {
 	int	check;
 
@@ -61,7 +61,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			check = ft_format_check(*format, &args);
+			check = ft_format_check(*format, args);
 		}
 		else
 			check = ft_print_char(*format);

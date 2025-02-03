@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thomasniets <thomasniets@student.42.fr>    +#+  +:+       +#+        */
+/*   By: vvasiuko <vvasiuko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 16:43:01 by vvasiuko          #+#    #+#             */
-/*   Updated: 2024/12/06 23:50:29 by thomasniets      ###   ########.fr       */
+/*   Updated: 2024/12/12 12:48:19 by vvasiuko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/so_long.h"
+
+// void	leaks(void)
+// {
+// 	system("leaks so_long");
+// }
 
 int	init_game(t_game *game, char *path)
 {
@@ -93,6 +98,10 @@ int32_t	main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	render_game(&game);
 	mlx_key_hook(game.mlx, move_hero_hook, &game);
+	mlx_close_hook(game.mlx, exit_success, &game);
 	mlx_loop(game.mlx);
+	exit_success(&game);
 	return (EXIT_SUCCESS);
 }
+
+	// atexit(leaks);
