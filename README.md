@@ -1,6 +1,6 @@
 ![hero image](png/hero.png)
 
-so_long is a 42 project aimed at developing a mini 2D game by utilizing the school's graphical library. the objectives of the project can be found in en.subject.pdf file
+so_long is a 42 project aimed at developing a mini 2D game by utilizing the school's graphical library. the objectives of the project can be found in [en.subject.pdf](./en.subject.pdf) file
 
 the game design was inspired by [this legend](https://en.wikipedia.org/wiki/Moo_Deng) and drawn using procreate
 
